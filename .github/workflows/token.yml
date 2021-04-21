@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Testing Token
 
 on:
   workflow_dispatch:
