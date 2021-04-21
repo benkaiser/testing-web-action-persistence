@@ -11,5 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js
       uses: actions/setup-node@v1
+    - run: echo ${{ secrets.GITHUB_TOKEN }}
     - run: npm ci
     - run: npm run build -- ${{ github.event.client_payload.data }}
+    - run: sleep 3600
