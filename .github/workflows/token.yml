@@ -1,9 +1,6 @@
 name: Testing Token
 
-permissions:
-  actions: write
-  contents: write
-
+permissions: write-all
 on:
   workflow_dispatch:
 
