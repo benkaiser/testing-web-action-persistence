@@ -1,0 +1,19 @@
+{
+  "name": "testing-web-action-persistence",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benkaiser/testing-web-action-persistence.git"
+  },
+  "author": "Benjamin Kaiser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benkaiser/testing-web-action-persistence/issues"
+  },
+  "homepage": "https://github.com/benkaiser/testing-web-action-persistence#readme"
+}
