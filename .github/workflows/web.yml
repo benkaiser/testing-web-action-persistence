@@ -1,7 +1,6 @@
 name: Testing API Dispatch
 
 on:
-  workflow_dispatch:
   repository_dispatch:
 
 jobs:
