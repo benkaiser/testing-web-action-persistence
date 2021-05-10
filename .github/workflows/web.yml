@@ -41,10 +41,10 @@ jobs:
         author_name: Github Actions
         author_email: actions@github.com
     - name: set the status
-        if: always()
-        run: |
-          if ${{ steps.test.outcome=='success' || steps.retry1.outcome=='success' || steps.retry2.outcome=='success' || steps.retry3.outcome=='success' }}; then
-             echo fine
-          else
-             exit 1
-          fi
+      if: always()
+      run: |
+        if ${{ steps.test.outcome=='success' || steps.retry1.outcome=='success' || steps.retry2.outcome=='success' || steps.retry3.outcome=='success' }}; then
+            echo fine
+        else
+            exit 1
+        fi
