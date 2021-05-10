@@ -14,6 +14,6 @@ function uuidv4() {
   });
 }
 
-const filename = 'data/' + uuidv4() + '.txt',;
+const filename = 'data/' + uuidv4() + '.txt';
 console.log('Writing file: ' + filename);
 fs.writeFileSync(filename, process.argv[2]);
