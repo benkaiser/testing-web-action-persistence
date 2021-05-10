@@ -12,7 +12,7 @@ jobs:
     - name: Committing changes with rebase
       id: push
       continue-on-error: true
-      uses: benkaiser/rebase-commit-push@master
+      uses: benkaiser/rebase-commit-push@v1.1
       with:
         author_name: Github Actions
         author_email: actions@github.com
@@ -20,7 +20,7 @@ jobs:
       continue-on-error: true
       id: retry1
       if: steps.push.outcome=='failure'
-      uses: benkaiser/rebase-commit-push@master
+      uses: benkaiser/rebase-commit-push@v1.1
       with:
         author_name: Github Actions
         author_email: actions@github.com
@@ -28,7 +28,7 @@ jobs:
       continue-on-error: true
       id: retry2
       if: steps.retry1.outcome=='failure'
-      uses: benkaiser/rebase-commit-push@master
+      uses: benkaiser/rebase-commit-push@v1.1
       with:
         author_name: Github Actions
         author_email: actions@github.com
@@ -36,7 +36,7 @@ jobs:
       continue-on-error: true
       id: retry3
       if: steps.retry2.outcome=='failure'
-      uses: benkaiser/rebase-commit-push@master
+      uses: benkaiser/rebase-commit-push@v1.1
       with:
         author_name: Github Actions
         author_email: actions@github.com
