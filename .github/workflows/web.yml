@@ -11,7 +11,7 @@ jobs:
     - run: sleep 10
     - run: npm run build -- ${{ github.event.client_payload.data }}
     - name: Committing changes with rebase
-      uses: benkaiser/rebase-commit-push@master
+      uses: benkaiser/rebase-commit-push@v1
       with:
         author_name: Github Actions
         author_email: actions@github.com
