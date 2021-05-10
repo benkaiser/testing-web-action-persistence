@@ -10,7 +10,41 @@ jobs:
     - uses: actions/checkout@v2
     - run: npm run build -- ${{ github.event.client_payload.data }}
     - name: Committing changes with rebase
+      id: push
+      continue-on-error: true
       uses: benkaiser/rebase-commit-push@v1
       with:
         author_name: Github Actions
         author_email: actions@github.com
+    - name: retry
+      continue-on-error: true
+      id: retry1
+      if: steps.push.outcome=='failure'
+      uses: benkaiser/rebase-commit-push@v1
+      with:
+        author_name: Github Actions
+        author_email: actions@github.com
+    - name: retry
+      continue-on-error: true
+      id: retry2
+      if: steps.retry1.outcome=='failure'
+      uses: benkaiser/rebase-commit-push@v1
+      with:
+        author_name: Github Actions
+        author_email: actions@github.com
+    - name: retry
+      continue-on-error: true
+      id: retry3
+      if: steps.retry2.outcome=='failure'
+      uses: benkaiser/rebase-commit-push@v1
+      with:
+        author_name: Github Actions
+        author_email: actions@github.com
+    - name: set the status
+        if: always()
+        run: |
+          if ${{ steps.test.outcome=='success' || steps.retry1.outcome=='success' || steps.retry2.outcome=='success' || steps.retry3.outcome=='success' }}; then
+             echo fine
+          else
+             exit 1
+          fi
